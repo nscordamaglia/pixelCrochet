@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Crochet • Contador de Puntos</title>
+</head>
+
+<body>
+    <header>
+        <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+            <svg class="sun" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <h1>Pixel Crochet</h1>
+        <p>Cargá tu imagen y generá el patrón de puntos exacto para tu tejido.</p>
+    </header>
+
+    <main>
+        <!-- Sección de Carga y Configuración -->
+        <section class="card">
+            <h2 class="card-title">Imagen y Grilla</h2>
+            <div class="form-group">
+                <label for="imageInput">Seleccionar Imagen</label>
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            
+            <div class="grid-config">
+                <div class="form-group">
+                    <label for="colsInput">Columnas</label>
+                    <input type="number" id="colsInput" value="50" min="5" max="300">
+                </div>
+                <div class="form-group">
+                    <label for="rowsInput">Filas</label>
+                    <input type="number" id="rowsInput" value="50" min="5" max="300">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="scalePatternInput">Escala Imagen (%)</label>
+                <input type="number" id="scalePatternInput" value="100" min="10" max="100">
+            </div>
+
+            <button id="btnConfig" class="btn-primary">CONFIGURAR LIENZO</button>
+        </section>
+
+        <!-- Sección de Posicionamiento -->
+        <section class="card">
+            <h2 class="card-title">Posicionamiento</h2>
+            <div class="grid-config">
+                <div class="form-group">
+                    <label for="offsetColsInput">Desplazar X</label>
+                    <input type="number" id="offsetColsInput" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="offsetRowsInput">Desplazar Y</label>
+                    <input type="number" id="offsetRowsInput" value="0">
+                </div>
+            </div>
+
+            <div class="control-pad">
+                <button id="btnUp" class="btn-secondary">↑</button>
+                <button id="btnLeft" class="btn-secondary">←</button>
+                <button id="btnCenter" class="btn-secondary">⊙</button>
+                <button id="btnRight" class="btn-secondary">→</button>
+                <button id="btnDown" class="btn-secondary">↓</button>
+            </div>
+        </section>
+
+        <!-- Área de Visualización -->
+        <section class="canvas-section">
+            <div class="canvas-container">
+                <canvas id="sourceCanvas" width="100" height="100" style="display:none;"></canvas>
+                <canvas id="gridCanvas" width="1200" height="900"></canvas>
+            </div>
+            <div id="info">
+                Carga una imagen para comenzar. Puedes usar la rueda del mouse para zoom y arrastrar para moverte.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        BETA • CONTADOR DE PUNTOS DE TEJIDO
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
